@@ -3,10 +3,13 @@
 from django.urls import path
 from . import views
 
+
 urlpatterns = [
     path('', views.index),
     path('about/', views.about),
     #url con una variable, con str, se coloca que se espera recibir un string
     #int:id
     path('hello/<str:nombreUsuario>', views.hello),
+    path('projects/', views.projects),
+    path('tasks/<id_task>', views.tasks),
 ]
