@@ -19,11 +19,30 @@ from django.db import models
 class Project(models.Model):
     name = models.CharField(max_length=200)
 
+    #__str__ es un metodo especial para mostrar los datos de manera diferente en el panel de administracion
+    def __str__(self):
+        return self.name
+
 class Task(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
     #on_delete = models.cascade, elimina en cascada
     project = models.ForeignKey(Project,on_delete = models.CASCADE)
+
+    #__str__
+    def __str__(self):
+        return self.title +' - '+ self.project.name 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
